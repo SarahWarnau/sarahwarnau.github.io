@@ -1,106 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Interactive TEAM Figures</title>
+<meta charset="UTF-8" />
+<title>Exercises – Technology-Enhanced Atmospheric Moistening</title>
 
-  <!-- Basic styling -->
-  <style>
+<style>
     body {
-      max-width: 900px;
-      margin: auto;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-      padding: 20px;
+        max-width: 900px;
+        margin: auto;
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+        padding: 20px;
     }
-    h1, h2 {
-      margin-top: 40px;
+    h1, h2, h3 {
+        margin-top: 40px;
+        font-weight: 600;
     }
-    .figure-container {
-      margin: 30px 0;
-      border: 1px solid #ccc;
-      padding: 10px;
+    img {
+        max-width: 100%;
+    }
+    .admonition {
+        border-left: 4px solid #007acc;
+        background: #f0f8ff;
+        padding: 10px 15px;
+        margin: 20px 0;
+    }
+    .tip {
+        border-left: 4px solid #4caf50;
+        background: #f3fff3;
+        padding: 10px 15px;
+        margin: 20px 0;
+        font-style: italic;
     }
     iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
+        width: 100%;
+        border: none;
+        margin: 20px 0;
     }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <h1>Interactive TEAM Plots</h1>
+<h1>X. Exercises Technology-Enhanced Atmospheric Moistening</h1>
 
-  <p>
-    Welcome! This page contains all interactive Plotly figures associated with my TEAM (Technology-Enhanced Atmospheric Moistening) work.
-    You can scroll through them, and read the descriptions in between.  
-    The text below is written in simple HTML but mirrors Markdown structure.
-  </p>
+<h2>X.1 Introduction</h2>
 
-  <!-- ===== FIGURE 1 ===== -->
-  <h2>Figure 1 — Title or Description</h2>
-  <p>
-    Write your Markdown-like explanation here (converted to HTML).  
-    For example:  
-    This figure shows the moistening potential of the TEAM spray system under baseline atmospheric conditions.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig1.html"></iframe>
-  </div>
+<p>
+With freshwater scarcity a pressing issue, new ways of increasing freshwater availability are being researched. One such idea is using technologies to enhance the atmospheric moisture content by evaporating seawater. The goal is to stimulate precipitation downwind over coastal drylands (1). Two different types of technologies are considered (Figure 1):
+</p>
 
-  <!-- ===== FIGURE 2 ===== -->
-  <h2>Figure 2 — Title or Description</h2>
-  <p>
-    Add your interpretation or description here.  
-    You can use paragraphs, bullet points, etc.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig2.html"></iframe>
-  </div>
+<ol>
+  <li>A spray technology where seawater droplets are sprayed and they evaporate by using heat from the atmosphere.</li>
+  <li>An interfacial solar evaporation technology where solar radiation is localized on a dark surface which is kept saturated with water.</li>
+</ol>
 
-  <!-- ===== FIGURE 3 ===== -->
-  <h2>Figure 3 — Title or Description</h2>
-  <p>
-    Placeholder text — replace with your own Markdown text.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig3.html"></iframe>
-  </div>
+<p>
+To investigate the effect of enhanced moistening on the ABL, the Large Eddy Simulation (LES) code microHH is used (2). In LES the Naviety–Stokes equations are solved numerically on a grid where the smallest eddies are parametrized. In the current setup, the grid resolution in all directions (x, y, z) is 10 m. We consider a typical marine boundary layer near the Spanish Mediterranean coast, with a wind velocity u = 4 m/s. The sea surface is modelled as a flat surface with a low roughness length, a constant temperature and specific humidity at saturation.
+</p>
 
-  <!-- ===== FIGURE 4 ===== -->
-  <h2>Figure 4 — Title or Description</h2>
-  <p>
-    Placeholder text — replace with your own Markdown-style explanation.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig4.html"></iframe>
-  </div>
+<p>
+There are two atmospheric cases: a mean atmosphere case “MEAN” and a dry-hot case “DRYHOT” where the specific humidity is decreased with 5 g/kg and the atmospheric temperature is increased with 3 K. Furthermore, per case there are three different model runs:  
+1) a reference run “REF”,  
+2) a run with a spray technology “SPR” implemented as a strong source of rain droplets at x = 1 km, z = 100 m,  
+3) a run with a solar technology “SOL”, implemented as a heated surface from x:0–1 km.  
+</p>
 
-  <!-- ===== FIGURE 5 ===== -->
-  <h2>Figure 5 — Title or Description</h2>
-  <p>
-    Placeholder text — replace with your own Markdown-style explanation.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig5.html"></iframe>
-  </div>
+<p>
+<img src="Technologies.png" alt="Technology figure" />
+<br><em>Figure 1: Two technology types considered to enhance atmospheric moisture. Adapted from (1).</em>
+</p>
 
-  <!-- ===== FIGURE 6 ===== -->
-  <h2>Figure 6 — Title or Description</h2>
-  <p>
-    Placeholder text — replace with your own Markdown-style explanation.
-  </p>
-  <div class="figure-container">
-    <iframe src="Fig6.html"></iframe>
-  </div>
+<h3>References</h3>
 
-  <hr>
-  <p>
-    End of figures.  
-    You can add more text here or link back to your main website.
-  </p>
+<p>
+1. Warnau, S. N. et al. *Technology-Enhanced Atmospheric Moistening (TEAM) for More Precipitation: A Perspective.* Environmental Science & Technology (2025).  
+2. van Heerwaarden, C. C. et al. *MicroHH 1.0: A Computational Fluid Dynamics Code for LES of ABL flows.* GMD (2017).
+</p>
+
+<hr>
+
+<h2>X.2</h2>
+
+<p>Look at the potential temperature and specific humidity fields of the reference runs of the two atmospheric cases.</p>
+
+<iframe src="Fig1.html" height="500"></iframe>
+
+<p><strong>a)</strong> How would you describe the ABL in each case? What mechanism explains the state of the ABL in each case?</p>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+MEAN case: Mixed ABL of ~400 m, mixed by shear (surface fluxes low over sea).<br><br>
+DRYHOT case: Mixed layer up to 350 m, with a shallow stable layer (~90 m) due to warmer atmosphere relative to sea surface.
+</div>
+
+<p>Now take a look at the turbulent heat and moisture fluxes.</p>
+
+<iframe src="Fig2.html" height="500"></iframe>
+
+<p><strong>b)</strong> For the MEAN case: why is the humidity flux positive everywhere, while the heat flux changes sign?</p>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+Heat: surface warms air → positive; entrainment brings warm air downward → negative aloft.<br><br>
+Moisture: moisture added at surface and dry air entrained aloft → positive throughout.
+</div>
+
+<p><strong>c)</strong> For the DRYHOT case, describe the mixed layer.</p>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+The mixed layer is a residual layer, not directly impacted by the surface fluxes.
+</div>
+
+<hr>
+
+<h2>X.3</h2>
+
+<p>Now examine how SPR and SOL technologies influence the ABL.</p>
+
+<iframe src="Fig3.html" height="500"></iframe>
+
+<p><strong>a)</strong> How do these technologies impact temperature and stability in MEAN and DRYHOT?</p>
+
+<iframe src="Fig4.html" height="1000"></iframe>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+<b>SPR</b> cools the air → increases stability.<br>
+– MEAN: cold, moist internal BL forms.  
+– DRYHOT: already stable ABL becomes more stable.<br><br>
+
+<b>SOL</b> heats the air → increases buoyancy.<br>
+– MEAN: enhanced convection and ABL growth.  
+– DRYHOT: buoyancy overcomes stability → mixes stable layer into residual layer.
+</div>
+
+<p><strong>b)</strong> Determine and interpret stability regimes using the figure below.</p>
+
+<div class="tip">
+You can zoom into regions of interest.
+</div>
+
+<iframe src="Fig5.html" height="1000"></iframe>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+REF → Rif between 0 and 1: statically stable, dynamically unstable.<br>
+SPR → Rif > 1: statically + dynamically stable.<br>
+SOL → Rif < 0: statically + dynamically unstable.<br>
+</div>
+
+<p>Lastly, look at TKE changes.</p>
+
+<iframe src="Fig6.html" height="500"></iframe>
+
+<p><strong>c)</strong> SPR and SOL have opposite stability effects but both increase TKE. Why?</p>
+
+<div class="admonition">
+<strong>Answer</strong><br>
+SPR: strong wind shear increases variance in u′u′ → TKE rises.<br>
+SOL: buoyancy increases w′w′ → convective TKE rises. Surface TKE also increases due to downward mixing of fast air.
+</div>
 
 </body>
 </html>
